@@ -7,15 +7,22 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 use App\Models\Location;
+use App\Models\User;
 
 class LocationTest extends TestCase
 {
-    // use RefreshDatabase;
+    use RefreshDatabase;
 
     /** @test */
     public function location_method_index()
     {
         $this->withoutExceptionHandling();
+
+        // Criando um usuário fictício
+        $user = User::factory()->create();
+
+        //Isso aqui configura como se esse usuário estivesse logado
+        $this->actingAs($user);
 
         $locations = Location::factory(2)->create();
 
@@ -50,6 +57,12 @@ class LocationTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
+        // Criando um usuário fictício
+        $user = User::factory()->create();
+
+        //Isso aqui configura como se esse usuário estivesse logado
+        $this->actingAs($user);
+
         $location = Location::factory()->create();
 
         $response = $this->getJson("api/locations/{$location->id}");
@@ -74,6 +87,12 @@ class LocationTest extends TestCase
     public function location_method_store()
     {
         $this->withoutExceptionHandling();
+
+        // Criando um usuário fictício
+        $user = User::factory()->create();
+
+        //Isso aqui configura como se esse usuário estivesse logado
+        $this->actingAs($user);
  
         $response = $this->postJson('api/locations',[
             'name' => 'Pousada Majestic',
@@ -103,6 +122,12 @@ class LocationTest extends TestCase
     public function location_method_update()
     {
         $this->withoutExceptionHandling();
+
+        // Criando um usuário fictício
+        $user = User::factory()->create();
+
+        //Isso aqui configura como se esse usuário estivesse logado
+        $this->actingAs($user);
 
         $location = Location::factory()->create();
 
@@ -134,6 +159,12 @@ class LocationTest extends TestCase
     public function location_method_destroy()
     {
         $this->withoutExceptionHandling();
+
+        // Criando um usuário fictício
+        $user = User::factory()->create();
+
+        //Isso aqui configura como se esse usuário estivesse logado
+        $this->actingAs($user);
 
         $location = Location::factory()->create();
 
