@@ -16,13 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
-        $schedule->call(function () {
-            User::factory()->create();
-        })->everyTwoMinutes()->timezone('America/Sao_Paulo');
-        // ->everyFifteenMinutes(); 15 minutos
-        // ->everyThirtyMinutes(); 30 minutos
-        // ->hourly(); 1 hora
+        // $schedule->command('inspire')->hourly();       
     }
 
     /**
