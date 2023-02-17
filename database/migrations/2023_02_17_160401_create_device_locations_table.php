@@ -23,7 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign key
-            $table->foreign('device_id')->references('id')->on('device');
+            $table->foreign('device_id')->references('id')->on('devices');
         });
     }
 
