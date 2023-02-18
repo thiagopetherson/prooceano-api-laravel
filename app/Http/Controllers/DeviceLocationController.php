@@ -44,27 +44,27 @@ class DeviceLocationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(DeviceLocationStoreRequest $request)
-    {
+    {       
         // Pegando o device daquele respectivo ID
         $device = Device::find($request->device_id); 
 
         $temperature = '';
-        $salinity = '';
+        $salinity = '';        
 
-        if ($request->device_id === 1)
+        if ($request->device_id == 1)
             $temperature = $request->temperature;
 
-        if ($request->device_id === 2)
+        if ($request->device_id == 2)
             $salinity = $request->salinity;
-
-        $device->deviceLocation->create([
+       
+        $deviceLocations = $device->deviceLocations()->create([
             'latitude' => $request->device_id,
             'longitude' => $request->device_id,
             'temperature' => $temperature,
             'salinity' => $salinity,
         ]);  
 
-        return response()->json($device, 200);
+        return response()->json($deviceLocations, 200);
     }
 
     /**
