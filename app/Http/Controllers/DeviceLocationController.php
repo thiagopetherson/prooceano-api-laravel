@@ -58,8 +58,8 @@ class DeviceLocationController extends Controller
             $salinity = $request->salinity;
        
         $deviceLocations = $device->deviceLocations()->create([
-            'latitude' => $request->device_id,
-            'longitude' => $request->device_id,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
             'temperature' => $temperature,
             'salinity' => $salinity,
         ]);  
