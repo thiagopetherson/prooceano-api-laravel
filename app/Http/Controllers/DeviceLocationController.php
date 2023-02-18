@@ -51,10 +51,10 @@ class DeviceLocationController extends Controller
         $temperature = '';
         $salinity = '';
 
-        if ($request->device_id === 4)
+        if ($request->device_id === 1)
             $temperature = $request->temperature;
 
-        if ($request->device_id === 14)
+        if ($request->device_id === 2)
             $salinity = $request->salinity;
 
         $device->deviceLocation->create([
