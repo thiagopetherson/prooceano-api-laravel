@@ -23,9 +23,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('locations', LocationController::class);    
     Route::get('logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::apiResource('device-locations', DeviceLocationController::class);
+    Route::get('get-location-by-device/{id}', [DeviceLocationController::class, 'getLocationByDevice'])->name('auth.getLocationByDevice');
 });
 
 Route::post('login', [AuthController::class, 'login'])->name('auth.login');
 Route::post('register', [AuthController::class, 'register'])->name('auth.register');
 Route::post('reset-password',[AuthController::class, 'resetPassword'])->name('auth.resetPassword');
-Route::apiResource('device-locations', DeviceLocationController::class);

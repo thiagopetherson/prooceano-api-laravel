@@ -17,7 +17,14 @@ class DeviceLocationController extends Controller
      */
     public function index()
     {
-        //
+        $deviceLocation = DeviceLocation::all();
+        return response()->json($deviceLocation, 200);
+    }
+    
+    public function getLocationByDevice($id)
+    {
+        $deviceLocation = DeviceLocation::where('device_id', $id)->get();
+        return response()->json($deviceLocation, 200);
     }
 
     /**

@@ -11,7 +11,7 @@ class DeviceLocation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['latitude','longitude','temperature','salinity'];
+    protected $fillable = ['device_id','latitude','longitude','temperature','salinity'];
 
     // Relationship Methods
 
