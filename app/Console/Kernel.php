@@ -4,11 +4,14 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Models\Device;
-
 
 class Kernel extends ConsoleKernel
 {
+
+    protected $commands = [
+        Commands\DeviceLocationCron::class,
+    ];
+
     /**
      * Define the application's command schedule.
      *
@@ -18,19 +21,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->call(function () {
-
-             // Pegando o device daquele respectivo ID
-            $device = Device::find(1);
-
-            $deviceLocations = $device->deviceLocations()->create([
-                'latitude' => '5.84695410560674',
-                'longitude' => '-55.186949423385705',
-                'temperature' => '15555',
-                'salinity' => '',
-            ]);     
-           
-        })->cron('*****');    
+        $schedule->command('log:cron')
+                ->everyMinute();     
     }
 
     /**
