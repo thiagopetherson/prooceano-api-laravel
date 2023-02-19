@@ -18,8 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('device_id');
             $table->string('latitude', 50); 
             $table->string('longitude', 50);
-            $table->string('temperature', 50);
-            $table->string('salinity', 50);
+            $table->string('temperature', 50)->nullable();
+            $table->string('salinity', 50)->nullable();
             $table->timestamps();
 
             // Foreign key

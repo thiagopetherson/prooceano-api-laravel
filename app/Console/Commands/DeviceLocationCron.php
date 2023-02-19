@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-
+use Faker\Generator as Faker;
 use App\Models\Device;
 
 class DeviceLocationCron extends Command
@@ -13,18 +13,21 @@ class DeviceLocationCron extends Command
      *
      * @var string
      */
-    protected $signature = 'log:cron';
+    protected $signature = 'deviceLocation:cron';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Pegando Coordenadas dos Equipamentos';
 
-    public function __construct()
+    protected $faker;
+
+    public function __construct(Faker $faker)
     {
         parent::__construct();
+        $this->faker = $faker;
     }
 
     /**
@@ -38,11 +41,21 @@ class DeviceLocationCron extends Command
         $device = Device::find(1); 
 
         $deviceLocations = $device->deviceLocations()->create([
-            'latitude' => '-22.316824657013566',
-            'longitude' => '-41.69914600433294',
-            'temperature' => '155555',
+            'latitude' => $this->faker->latitude(-22.584269,-22.404153),
+            'longitude' => $this->faker->longitude(-41.752995, -41.289535),
+            'temperature' => rand(10, 30),
             'salinity' => '',
-        ]);  
+        ]);
+
+        // Pegando o device daquele respectivo ID
+        $device = Device::find(2); 
+
+        $deviceLocations = $device->deviceLocations()->create([
+            'latitude' => $this->faker->latitude(-23.337706,-23.072650),
+            'longitude' => $this->faker->longitude(-41481670, -42.189336),
+            'temperature' => '',
+            'salinity' => rand(30, 38),
+        ]);
 
         return Command::SUCCESS;
     }
