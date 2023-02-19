@@ -4,7 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use App\Models\Location;
+use App\Models\Device;
 
 
 class Kernel extends ConsoleKernel
@@ -19,13 +19,18 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
-            $data = [
-                'name' => 'Oxygen Resort Paramaribo',
+
+             // Pegando o device daquele respectivo ID
+            $device = Device::find(1);
+
+            $deviceLocations = $device->deviceLocations()->create([
                 'latitude' => '5.84695410560674',
-                'longitude' => '-55.186949423385705'
-            ];
-            Location::create($data);
-        })->cron('* * * * *');;    
+                'longitude' => '-55.186949423385705',
+                'temperature' => '15555',
+                'salinity' => '',
+            ]);     
+           
+        })->daily();    
     }
 
     /**
