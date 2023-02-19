@@ -26,12 +26,7 @@ class DeviceLocationCron extends Command
     public function __construct()
     {
         parent::__construct();        
-    }
-
-    public function withFaker()
-    {
-        return \Faker\Factory::create('pt_BR');
-    }
+    }   
 
     /**
      * Execute the console command.
@@ -44,8 +39,10 @@ class DeviceLocationCron extends Command
         $device = Device::find(1); 
         
         $deviceLocations = $device->deviceLocations()->create([
-            'latitude' =>  $this->faker->latitude(-22.584269,-22.404153),
-            'longitude' =>  $this->faker->longitude(-41.752995, -41.289535),
+            //'latitude' =>  $this->faker->latitude(-22.584269,-22.404153),
+            //'longitude' =>  $this->faker->longitude(-41.752995, -41.289535),
+            'latitude' => 1,
+            'longitude' => 2,
             'temperature' => rand(10, 30),
             'salinity' => '',
         ]);
@@ -54,8 +51,10 @@ class DeviceLocationCron extends Command
         $device = Device::find(2); 
 
         $deviceLocations = $device->deviceLocations()->create([
-            'latitude' =>  $this->faker->latitude(-23.337706,-23.072650),
-            'longitude' =>  $this->faker->longitude(-41481670, -42.189336),
+            //'latitude' =>  $this->faker->latitude(-23.337706,-23.072650),
+            //'longitude' =>  $this->faker->longitude(-41481670, -42.189336),
+            'latitude' => 1,
+            'longitude' => 2,
             'temperature' => '',
             'salinity' => rand(30, 38),
         ]);
