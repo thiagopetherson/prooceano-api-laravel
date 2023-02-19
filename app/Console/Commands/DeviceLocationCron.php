@@ -24,10 +24,9 @@ class DeviceLocationCron extends Command
 
     protected $faker;
 
-    public function __construct(Faker $faker)
+    public function __construct()
     {
-        parent::__construct();
-        $this->faker = $faker;
+        parent::__construct();        
     }
 
     /**
@@ -37,12 +36,14 @@ class DeviceLocationCron extends Command
      */
     public function handle()
     {
+        $faker = new Faker;
+
         // Pegando o device daquele respectivo ID
         $device = Device::find(1); 
-
+        
         $deviceLocations = $device->deviceLocations()->create([
-            'latitude' => $this->faker->create()->latitude(-22.584269,-22.404153),
-            'longitude' => $this->faker->create()->longitude(-41.752995, -41.289535),
+            'latitude' => $faker->latitude(-22.584269,-22.404153),
+            'longitude' => $faker->longitude(-41.752995, -41.289535),
             'temperature' => rand(10, 30),
             'salinity' => '',
         ]);
@@ -51,8 +52,8 @@ class DeviceLocationCron extends Command
         $device = Device::find(2); 
 
         $deviceLocations = $device->deviceLocations()->create([
-            'latitude' => $this->faker->latitude(-23.337706,-23.072650),
-            'longitude' => $this->faker->longitude(-41481670, -42.189336),
+            'latitude' => $faker->latitude(-23.337706,-23.072650),
+            'longitude' => $faker->longitude(-41481670, -42.189336),
             'temperature' => '',
             'salinity' => rand(30, 38),
         ]);
