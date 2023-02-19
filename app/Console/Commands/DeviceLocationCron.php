@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 use Illuminate\Console\Command;
+use Faker\Generator as Faker;
 use App\Models\Device;
-use App\Helpers\DeviceLocationHelper; // Chamando o helper
 
 class DeviceLocationCron extends Command
 {
@@ -35,10 +35,11 @@ class DeviceLocationCron extends Command
     {       
         // Pegando o device daquele respectivo ID
         $device = Device::find(1); 
-        
+        $faker = new Faker;
+
         $deviceLocations = $device->deviceLocations()->create([            
-            'latitude' => DeviceLocationHelper::generateGenericLatitudeBetween(-22.584269, -22.404153),
-            'longitude' => DeviceLocationHelper::generateGenericLongitudeBetween(-41.752995, -41.289535),
+            'latitude' => $faker->latitude(-22.584269,-22.404153),
+            'longitude' => $faker->longitude(-41.752995, -41.289535),
             'temperature' => rand(10, 30),
             'salinity' => '',
         ]);
@@ -47,8 +48,8 @@ class DeviceLocationCron extends Command
         $device = Device::find(2); 
 
         $deviceLocations = $device->deviceLocations()->create([        
-            'latitude' => DeviceLocationHelper::generateGenericLatitudeBetween(-23.337706,-23.072650),
-            'longitude' => DeviceLocationHelper::generateGenericLongitudeBetween(-41481670, -42.189336),
+            'latitude' => $faker->latitude(-23.337706,-23.072650),
+            'longitude' => $faker->longitude(-41481670, -42.189336),
             'temperature' => '',
             'salinity' => rand(30, 38),
         ]);

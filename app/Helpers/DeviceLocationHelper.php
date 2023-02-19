@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Helpers;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class DeviceLocationHelper
+class DeviceLocationHelper extends Factory
 {
     //Método para gerar uma latitude aleatória entre esses dois números
     public static function generateGenericLatitudeBetween($a, $b)
