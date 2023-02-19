@@ -22,6 +22,11 @@ class DeviceLocationCron extends Command
      */
     protected $description = 'Command description';
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /**
      * Execute the console command.
      *
