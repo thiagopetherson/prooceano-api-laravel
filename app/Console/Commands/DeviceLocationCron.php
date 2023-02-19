@@ -41,8 +41,8 @@ class DeviceLocationCron extends Command
         $device = Device::find(1); 
 
         $deviceLocations = $device->deviceLocations()->create([
-            'latitude' => $this->faker->latitude(-22.584269,-22.404153),
-            'longitude' => $this->faker->longitude(-41.752995, -41.289535),
+            'latitude' => $this->faker->create()->latitude(-22.584269,-22.404153),
+            'longitude' => $this->faker->create()->longitude(-41.752995, -41.289535),
             'temperature' => rand(10, 30),
             'salinity' => '',
         ]);
