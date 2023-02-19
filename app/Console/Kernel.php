@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
                 'salinity' => '',
             ]);     
            
-        })->daily();    
+        })->cron('*****');    
     }
 
     /**
