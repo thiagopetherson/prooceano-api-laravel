@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Console\Commands;
-
+use Faker\Generator; // Para o Faker
+use Illuminate\Container\Container; // Para o Faker
 use Illuminate\Console\Command;
 use App\Models\Device;
 
@@ -35,14 +36,16 @@ class DeviceLocationCron extends Command
      */
     public function handle()
     {       
+        $faker = Container::getInstance()->make(Generator::class);
+
         // Pegando o device daquele respectivo ID
         $device = Device::find(1); 
         
         $deviceLocations = $device->deviceLocations()->create([
             //'latitude' =>  $this->faker->latitude(-22.584269,-22.404153),
             //'longitude' =>  $this->faker->longitude(-41.752995, -41.289535),
-            'latitude' => 1,
-            'longitude' => 2,
+            'latitude' => $faker->latitude(-22.584269,-22.404153),
+            'longitude' => $faker->longitude(-41.752995, -41.289535),
             'temperature' => rand(10, 30),
             'salinity' => '',
         ]);
@@ -53,8 +56,8 @@ class DeviceLocationCron extends Command
         $deviceLocations = $device->deviceLocations()->create([
             //'latitude' =>  $this->faker->latitude(-23.337706,-23.072650),
             //'longitude' =>  $this->faker->longitude(-41481670, -42.189336),
-            'latitude' => 1,
-            'longitude' => 2,
+            'latitude' => $faker->latitude(-23.337706,-23.072650),
+            'longitude' => $faker->longitude(-41481670, -42.189336),
             'temperature' => '',
             'salinity' => rand(30, 38),
         ]);
