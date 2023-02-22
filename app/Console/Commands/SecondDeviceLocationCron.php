@@ -2,29 +2,27 @@
 
 namespace App\Console\Commands;
 use Illuminate\Console\Command;
+
 use App\Models\Device;
 use App\Helpers\DeviceLocationHelper; // Chamando o helper
+use App\Events\RefreshSecondDeviceLocation; // Importando o evento
+use App\Models\DeviceLocation;
 
-class DeviceLocationCron extends Command
+class SecondDeviceLocationCron extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'deviceLocation:cron';
+    protected $signature = 'secondDeviceLocation:cron';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Pegando Coordenadas dos Equipamentos';
-
-    public function __construct()
-    {
-        parent::__construct();        
-    }   
+    protected $description = 'Pegando Coordenadas do Equipamento Baleia';
 
     /**
      * Execute the console command.
@@ -32,20 +30,7 @@ class DeviceLocationCron extends Command
      * @return int
      */
     public function handle()
-    {       
-        // Pegando o device daquele respectivo ID
-        $device = Device::find(1); 
-        
-        // Pegando coordenadas aleatórias
-        $atlasCoords = DeviceLocationHelper::generateValidCordinatesAtlas();
-
-        $deviceLocations = $device->deviceLocations()->create([            
-            'latitude' => $atlasCoords[0],
-            'longitude' => $atlasCoords[1],
-            'temperature' => rand(10, 30),
-            'salinity' => '',
-        ]);
-
+    {
         // Pegando o device daquele respectivo ID
         $device = Device::find(2); 
         
@@ -58,6 +43,11 @@ class DeviceLocationCron extends Command
             'temperature' => '',
             'salinity' => rand(30, 38),
         ]);
+
+        // Pegando as últimas 5 coordenadas desse equipamento
+        $locations = DeviceLocation::where('device_id', 2)->orderBy('created_at','desc')->take(5)->get();
+
+        RefreshSecondDeviceLocation::dispatch($locations);
 
         return Command::SUCCESS;
     }

@@ -6,7 +6,8 @@ use App\Models\DeviceLocation;
 use App\Models\Device;
 use Illuminate\Http\Request;
 use App\Http\Requests\DeviceLocation\DeviceLocationStoreRequest; // Chamando o Form Request (Para validação)
-
+use App\Events\RefreshFirstDeviceLocation; // Importando o evento
+use App\Events\RefreshSecondDeviceLocation; // Importando o evento
 
 class DeviceLocationController extends Controller
 {
@@ -23,7 +24,7 @@ class DeviceLocationController extends Controller
     
     public function getLocationByDevice($id)
     {
-        $deviceLocation = DeviceLocation::where('device_id', $id)->get();
+        $deviceLocation = DeviceLocation::where('device_id', $id)->orderBy('created_at','desc')->take(5)->get();
         return response()->json($deviceLocation, 200);
     }
 
@@ -62,8 +63,8 @@ class DeviceLocationController extends Controller
             'longitude' => $request->longitude,
             'temperature' => $temperature,
             'salinity' => $salinity,
-        ]);  
-
+        ]);
+        
         return response()->json($deviceLocations, 200);
     }
 

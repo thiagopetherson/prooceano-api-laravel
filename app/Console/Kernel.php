@@ -9,7 +9,8 @@ class Kernel extends ConsoleKernel
 {
 
     protected $commands = [
-        Commands\DeviceLocationCron::class,
+        Commands\FirstDeviceLocationCron::class,
+        Commands\SecondDeviceLocationCron::class,
     ];
 
     /**
@@ -21,7 +22,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('deviceLocation:cron')->everyThirtyMinutes();     
+        $schedule->command('firstDeviceLocation:cron')->everyMinute();
+        $schedule->command('secondDeviceLocation:cron')->everyMinute();    
     }
 
     /**
