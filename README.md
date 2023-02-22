@@ -1,6 +1,6 @@
 # API do Sistema Proposto Pela da Prooceano - Laravel 9
 
-Projeto de um sistema de armazenamento de geolocalizações e informações. 
+Projeto de um sistema de armazenamento de geolocalizações e informações.<br/>
 
 
 ## 🚀 Detalhes
@@ -8,10 +8,10 @@ Projeto de um sistema de armazenamento de geolocalizações e informações.
 
 Desenvolvimento de uma API em Laravel 9 com quatro tabelas: users, devices, locations e device_locations. Onde algumas delas se relacionam.
 
-A tabela users possui os campos (id, name, email, password, is_admin, created_at e updated_at).<br/>
-A tabela devices possui os campos (id, name, description, created_at e updated_at)<br/>
-A tabela locations possui os campos (id, name, latitude, longitude, created_at e updated_at).<br/>
-A tabela devices_locations possui os campos (id, device_id, latitude, longitude, temperature, salinity, created_at e updated_at).
+- A tabela users possui os campos (id, name, email, password, is_admin, created_at e updated_at).<br/>
+- A tabela devices possui os campos (id, name, description, created_at e updated_at)<br/>
+- A tabela locations possui os campos (id, name, latitude, longitude, created_at e updated_at).<br/>
+- A tabela devices_locations possui os campos (id, device_id, latitude, longitude, temperature, salinity, created_at e updated_at).<br/>
 
 
 ## 🛠️ Pré-requisitos
@@ -22,20 +22,22 @@ Você precisa ter instalado em sua máquina:
 - Composer<br/>
 - Laravel<br/>
 
+
 ## 📦 Desenvolvimento Backend (Ferramentas utilizadas na API Laravel)
 
-Rotas e Métodos Resources.<br/>
-Métodos de Relacionamentos Has Many - Joins de Tabelas<br/>
-Autenticação com Sanctum<br/>
-Form Requests - Validação<br/>
-Factories e Seeders - Para Popular o Banco<br/>
-Testes Automatizados - PHPUnit<br/>
-Helpers - Reutilização e Clean Code<br/>
-Envio de Email - Usando o Mail do Laravel<br/>
-Schedules e Cronjob - Agendamento e Automação de tarefas<br/>
-Websockets e Eventos<br/>
-Deploy Automatizado - Deploy Automatizado Entre Github e Heroku<br/>
+- Rotas e Métodos Resources.<br/>
+- Métodos de Relacionamentos Has Many - Joins de Tabelas<br/>
+- Autenticação com Sanctum<br/>
+- Form Requests - Validação<br/>
+- Factories e Seeders - Para Popular o Banco<br/>
+- Testes Automatizados - PHPUnit<br/>
+- Helpers - Reutilização e Clean Code<br/>
+- Envio de Email - Usando o Mail do Laravel<br/>
+- Schedules e Cronjob - Agendamento e Automação de tarefas<br/>
+- Websockets e Eventos<br/>
+- Deploy Automatizado - Deploy Automatizado Entre Github e Heroku<br/>
 
+<br/>
 
 ## 🔧 Instalação e Inicialização do Projeto (Laravel 9)
 
@@ -43,37 +45,37 @@ Deploy Automatizado - Deploy Automatizado Entre Github e Heroku<br/>
 Na pasta raiz da aplicação rode no terminal:
 
 `composer install`
-
+ <br/>
 
 Rode o comando abaixo (No terminal, na pasta raiz do projeto), para criação das tabelas no banco:
  
 `php artisan migrate`
-
+<br/>
 
 Rode o comando abaixo (No terminal, na pasta raiz do projeto), para criação dos 2(dois) equipamentos (Atlas e Baleia):
  
 `php artisan db:seed --class=DeviceSeeder`
-
+<br/>
 
 Por fim, rodamos o comando abaixo, que roda nossa aplicação backend laravel (No terminal, na pasta raiz do projeto):
 
 `php artisan serve`
-
+<br/>
 
 Caso queira rodar os testes implementados, rode o comando: 
  
 `php artisan teste` ou `./vendor/bin/phpunit`
-
+<br/>
 
 Para rodar os crons implementados, rodar o(s) comando:
 
 `php artisan firstDeviceLocation:cron` e/ou `php artisan secondDeviceLocation:cron`
-
+<br/>
 
 Para rodar o websocket, rodar o comando:
 
 `php artisan websockets:serve`
-
+<br/>
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
