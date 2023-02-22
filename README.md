@@ -1,7 +1,85 @@
+# API do Sistema Proposto Pela da Prooceano - Laravel 9
+
+Projeto de um sistema de armazenamento de geolocalizações e informações. 
+
+
+## 🚀 Detalhes
+
+
+Desenvolvimento de uma API em Laravel 9 com quatro tabelas: users, devices, locations e device_locations. Onde algumas delas se relacionam.
+
+A tabela users possui os campos (id, name, email, password, is_admin, created_at e updated_at).<br/>
+A tabela devices possui os campos (id, name, description, created_at e updated_at)<br/>
+A tabela locations possui os campos (id, name, latitude, longitude, created_at e updated_at).<br/>
+A tabela devices_locations possui os campos (id, device_id, latitude, longitude, temperature, salinity, created_at e updated_at).
+
+
+## 🛠️ Pré-requisitos
+
+
+Você precisa ter instalado em sua máquina:
+
+- Composer<br/>
+- Laravel<br/>
+
+## 📦 Desenvolvimento Backend (Ferramentas utilizadas na API Laravel)
+
+Rotas e Métodos Resources.<br/>
+Métodos de Relacionamentos Has Many - Joins de Tabelas<br/>
+Autenticação com Sanctum<br/>
+Form Requests - Validação<br/>
+Factories e Seeders - Para Popular o Banco<br/>
+Testes Automatizados - PHPUnit<br/>
+Helpers - Reutilização e Clean Code<br/>
+Envio de Email - Usando o Mail do Laravel<br/>
+Schedules e Cronjob - Agendamento e Automação de tarefas<br/>
+Websockets e Eventos<br/>
+Deploy Automatizado - Deploy Automatizado Entre Github e Heroku<br/>
+
+
+## 🔧 Instalação e Inicialização do Projeto (Laravel 9)
+
+
+Na pasta raiz da aplicação rode no terminal:
+
+`composer install`
+
+
+Rode o comando abaixo (No terminal, na pasta raiz do projeto), para criação das tabelas no banco:
+ 
+`php artisan migrate`
+
+
+Rode o comando abaixo (No terminal, na pasta raiz do projeto), para criação dos 2(dois) equipamentos (Atlas e Baleia):
+ 
+`php artisan db:seed --class=DeviceSeeder`
+
+
+Por fim, rodamos o comando abaixo, que roda nossa aplicação backend laravel (No terminal, na pasta raiz do projeto):
+
+`php artisan serve`
+
+
+Caso queira rodar os testes implementados, rode o comando: 
+ 
+`php artisan teste` ou `./vendor/bin/phpunit`
+
+
+Para rodar os crons implementados, rodar o(s) comando:
+
+`php artisan firstDeviceLocation:cron` e/ou `php artisan secondDeviceLocation:cron`
+
+
+Para rodar o websocket, rodar o comando:
+
+`php artisan websockets:serve`
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>

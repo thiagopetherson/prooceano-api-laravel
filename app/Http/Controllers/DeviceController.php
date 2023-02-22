@@ -35,7 +35,12 @@ class DeviceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $device = new Device;
+        $device->name = $request->name;
+        $device->description = $request->description;        
+        $device->save();
+
+       return response()->json($device, 200);
     }
 
     /**
