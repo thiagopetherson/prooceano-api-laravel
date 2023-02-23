@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Schema;
 use App\Models\Device;
+use App\Models\DeviceLocation;
 
 class DeviceSeeder extends Seeder
 {
@@ -15,8 +17,12 @@ class DeviceSeeder extends Seeder
      */
     public function run()
     {       
-        // Device::factory()->create();
-     
+        // Isso é feito porque os id's dos devices devem ser 1 e 2. Então precisamos truncar a tabela
+        Schema::disableForeignKeyConstraints();
+        DeviceLocation::truncate();
+        Device::truncate();
+        Schema::enableForeignKeyConstraints();
+
         Device::insert([
             [
                 'name' => 'Equipamento Atlas',
