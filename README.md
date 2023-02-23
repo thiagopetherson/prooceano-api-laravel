@@ -38,7 +38,7 @@ Você precisa ter instalado em sua máquina:
 - Websockets e Eventos<br/>
 - Deploy Automatizado - Deploy Automatizado Entre Github e Heroku<br/>
 
-<br/><br/>
+<br/>
 
 
 ## 🚀 Link da Aplicação
