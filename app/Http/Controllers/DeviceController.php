@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use Illuminate\Http\Request;
+use App\Http\Requests\Device\DeviceStoreRequest; // Chamando o Form Request (Para validação)
+use App\Http\Requests\Device\DeviceUpdateRequest; // Chamando o Form Request (Para validação)
+use Symfony\Component\HttpFoundation\Response;
 
 class DeviceController extends Controller
 {
@@ -14,18 +17,9 @@ class DeviceController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $device = Device::all();
+        return response()->json($device, 200);
+    }    
 
     /**
      * Store a newly created resource in storage.
@@ -33,7 +27,7 @@ class DeviceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DeviceStoreRequest $request)
     {
         $device = new Device;
         $device->name = $request->name;
@@ -49,21 +43,17 @@ class DeviceController extends Controller
      * @param  \App\Models\Device  $device
      * @return \Illuminate\Http\Response
      */
-    public function show(Device $device)
+    public function show($id)
     {
-        //
-    }
+        $device = Device::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Device  $device
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Device $device)
-    {
-        //
+        if($device === null) {
+            return response()->json(['erro' => 'O dispositivo pesquisado não existe'], 404);
+        }
+
+        return response()->json($device, 200);
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -72,9 +62,19 @@ class DeviceController extends Controller
      * @param  \App\Models\Device  $device
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Device $device)
+    public function update(DeviceUpdateRequest $request, $id)
     {
-        //
+        $device = Device::find($id);
+
+        if($device) {
+            $device->name = $request->name;
+            $device->description = $request->description;            
+            $device->save();
+
+            return response()->json($device, 200);
+        }
+
+        return response()->json(['erro' => 'O dispositivo não existe'], 404);
     }
 
     /**
@@ -83,8 +83,15 @@ class DeviceController extends Controller
      * @param  \App\Models\Device  $device
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Device $device)
+    public function destroy($id)
     {
-        //
+        $device = Device::find($id);
+
+        if($device) {
+            $device->delete();
+            return response()->json(['Mensagem:' => 'O dispositivo foi deletado com sucesso!'], Response::HTTP_NO_CONTENT);
+        }
+
+        return response()->json(['erro' => 'Impossível realizar a exclusão. O dispositivo não existe no banco de dados'], 404);
     }
 }
