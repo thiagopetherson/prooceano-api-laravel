@@ -3,10 +3,6 @@
 Projeto de um sistema de armazenamento de geolocalizações e informações.<br/><br/>
 
 
-## 🚀 Link da Aplicação
-
-Aplicação hospedada:<br/>
-Link: https://prooceano.netlify.app/<br/><br/>
 
 ## 📋 Detalhes
 
@@ -17,6 +13,13 @@ Desenvolvimento de uma API em Laravel 9 com quatro tabelas: users, devices, loca
 - A tabela devices possui os campos (id, name, description, created_at e updated_at)<br/>
 - A tabela locations possui os campos (id, name, latitude, longitude, created_at e updated_at).<br/>
 - A tabela devices_locations possui os campos (id, device_id, latitude, longitude, temperature, salinity, created_at e updated_at).<br/><br/>
+
+
+## 🚀 Link da Aplicação
+
+Aplicação hospedada:<br/>
+Link: https://prooceano.netlify.app/<br/><br/>
+
 
 
 ## 🛠️ Pré-requisitos
