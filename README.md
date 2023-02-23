@@ -3,6 +3,11 @@
 Projeto de um sistema de armazenamento de geolocalizações e informações.<br/><br/>
 
 
+## 🚀 Link da Aplicação
+
+Aplicação hospedada:<br/>
+Link: https://prooceano.netlify.app/<br/><br/>
+
 ## 📋 Detalhes
 
 
@@ -40,11 +45,6 @@ Você precisa ter instalado em sua máquina:
 
 <br/>
 
-
-## 🚀 Link da Aplicação
-
-Aplicação hospedada:<br/>
-Link: https://prooceano.netlify.app/<br/><br/>
 
 
 ## 🔧 Instalação e Inicialização do Projeto (Laravel 9)
