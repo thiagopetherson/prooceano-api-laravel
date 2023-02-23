@@ -1,6 +1,6 @@
 # API do Sistema Proposto Pela da Prooceano
 
-Projeto de um sistema de armazenamento de geolocalizações e informações.<br/>
+Projeto de um sistema de armazenamento de geolocalizações e informações.<br/><br/>
 
 
 ## 📋 Detalhes
