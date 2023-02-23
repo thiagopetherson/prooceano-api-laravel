@@ -51,7 +51,8 @@ class FirstDeviceLocationCron extends Command
 
         // Pegando as últimas 5 coordenadas desse equipamento
         $locations = DeviceLocation::where('device_id', 1)->orderBy('created_at','desc')->take(5)->get();
-
+        
+        // Disparando
         RefreshFirstDeviceLocation::dispatch($locations);
 
         return Command::SUCCESS;

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use Illuminate\Http\Request;
-use App\Http\Requests\Device\DeviceStoreRequest; // Chamando o Form Request (Para validação)
-use App\Http\Requests\Device\DeviceUpdateRequest; // Chamando o Form Request (Para validação)
+// Chamando os Form Requests (Para validação)
+use App\Http\Requests\Device\DeviceStoreRequest; 
+use App\Http\Requests\Device\DeviceUpdateRequest;
+
 use Symfony\Component\HttpFoundation\Response;
 
 class DeviceController extends Controller

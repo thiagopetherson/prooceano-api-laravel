@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\DeviceLocation;
 use App\Models\Device;
 use Illuminate\Http\Request;
-use App\Http\Requests\DeviceLocation\DeviceLocationStoreRequest; // Chamando o Form Request (Para validação)
-use App\Events\RefreshFirstDeviceLocation; // Importando o evento
-use App\Events\RefreshSecondDeviceLocation; // Importando o evento
+// Chamando o Form Request (Para validação)
+use App\Http\Requests\DeviceLocation\DeviceLocationStoreRequest;
+// Importando os eventos
+use App\Events\RefreshFirstDeviceLocation; 
+use App\Events\RefreshSecondDeviceLocation;
 
 class DeviceLocationController extends Controller
 {

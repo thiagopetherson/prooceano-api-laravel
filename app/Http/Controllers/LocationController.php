@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use Illuminate\Http\Request;
-use App\Http\Requests\Location\LocationStoreRequest; // Chamando o Form Request (Para validação)
-use App\Http\Requests\Location\LocationUpdateRequest; // Chamando o Form Request (Para validação)
+ // Chamando os Form Requests (Para validação)
+use App\Http\Requests\Location\LocationStoreRequest;
+use App\Http\Requests\Location\LocationUpdateRequest;
+
 use Symfony\Component\HttpFoundation\Response;
 
 class LocationController extends Controller

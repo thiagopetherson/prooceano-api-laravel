@@ -47,6 +47,7 @@ class SecondDeviceLocationCron extends Command
         // Pegando as últimas 5 coordenadas desse equipamento
         $locations = DeviceLocation::where('device_id', 2)->orderBy('created_at','desc')->take(5)->get();
 
+        // Disparando
         RefreshSecondDeviceLocation::dispatch($locations);
 
         return Command::SUCCESS;

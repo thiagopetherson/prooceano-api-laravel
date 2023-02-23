@@ -6,12 +6,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-use App\Mail\SendMailPasswordRecovery; // Classe de Envio de Email
-use Illuminate\Support\Facades\Mail; // Importando a lib de envio de email
-
-use App\Http\Requests\Auth\AuthRegisterRequest; // Chamando o Form Request (Para validação)
-use App\Http\Requests\Auth\AuthResetPasswordRequest; // Chamando o Form Request (Para validação)
-use App\Helpers\AuthHelper; // Chamando o helper
+// Classe de Envio de Email
+use App\Mail\SendMailPasswordRecovery;
+ // Importando a lib de envio de email
+use Illuminate\Support\Facades\Mail;
+// Chamando os Form Requests (Para validação)
+use App\Http\Requests\Auth\AuthRegisterRequest;
+use App\Http\Requests\Auth\AuthResetPasswordRequest;
+// Chamando o helper
+use App\Helpers\AuthHelper;
 
 class AuthController extends Controller
 {
