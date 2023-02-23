@@ -3,7 +3,7 @@
 Projeto de um sistema de armazenamento de geolocalizações e informações.<br/>
 
 
-## 🚀 Detalhes
+## 📋 Detalhes
 
 
 Desenvolvimento de uma API em Laravel 9 com quatro tabelas: users, devices, locations e device_locations. Onde algumas delas se relacionam.
@@ -11,7 +11,7 @@ Desenvolvimento de uma API em Laravel 9 com quatro tabelas: users, devices, loca
 - A tabela users possui os campos (id, name, email, password, is_admin, created_at e updated_at).<br/>
 - A tabela devices possui os campos (id, name, description, created_at e updated_at)<br/>
 - A tabela locations possui os campos (id, name, latitude, longitude, created_at e updated_at).<br/>
-- A tabela devices_locations possui os campos (id, device_id, latitude, longitude, temperature, salinity, created_at e updated_at).<br/>
+- A tabela devices_locations possui os campos (id, device_id, latitude, longitude, temperature, salinity, created_at e updated_at).<br/><br/>
 
 
 ## 🛠️ Pré-requisitos
@@ -20,7 +20,7 @@ Desenvolvimento de uma API em Laravel 9 com quatro tabelas: users, devices, loca
 Você precisa ter instalado em sua máquina:
 
 - Composer<br/>
-- Laravel<br/>
+- Laravel<br/><br/>
 
 
 ## 📦 Desenvolvimento Backend (Ferramentas utilizadas na API Laravel)
@@ -38,7 +38,14 @@ Você precisa ter instalado em sua máquina:
 - Websockets e Eventos<br/>
 - Deploy Automatizado - Deploy Automatizado Entre Github e Heroku<br/>
 
-<br/>
+<br/><br/>
+
+
+## 🚀 Link da Aplicação
+
+Aplicação hospedada:<br/>
+Link: https://prooceano.netlify.app/<br/><br/>
+
 
 ## 🔧 Instalação e Inicialização do Projeto (Laravel 9)
 
