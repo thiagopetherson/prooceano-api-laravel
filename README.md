@@ -1,4 +1,4 @@
-# API do Sistema Proposto Pela da Prooceano - Laravel 9
+# API do Sistema Proposto Pela da Prooceano
 
 Projeto de um sistema de armazenamento de geolocalizações e informações.<br/>
 
@@ -25,6 +25,7 @@ Você precisa ter instalado em sua máquina:
 
 ## 📦 Desenvolvimento Backend (Ferramentas utilizadas na API Laravel)
 
+- Laravel 9
 - Rotas e Métodos Resources.<br/>
 - Métodos de Relacionamentos Has Many - Joins de Tabelas<br/>
 - Autenticação com Sanctum<br/>
@@ -75,7 +76,10 @@ Para rodar os crons implementados, rodar o(s) comando:
 Para rodar o websocket, rodar o comando:
 
 `php artisan websockets:serve`
-<br/>
+<br/><br/>
+
+![image](https://user-images.githubusercontent.com/44420212/220792427-2b158ed7-1a25-4588-a0ea-a7843b37a713.png)
+
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
