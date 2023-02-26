@@ -78,7 +78,7 @@ Caso queira rodar os testes implementados, rode o comando:
 `php artisan teste` ou `./vendor/bin/phpunit`
 <br/>
 
-Para rodar os crons implementados, rodar o(s) comando:
+Para rodar os crons implementados (e criar as localizações dos dispositivos), rodar o(s) comando:
 
 `php artisan firstDeviceLocation:cron` e/ou `php artisan secondDeviceLocation:cron`
 <br/>
