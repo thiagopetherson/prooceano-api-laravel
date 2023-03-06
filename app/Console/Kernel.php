@@ -22,8 +22,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        $schedule->command('firstDeviceLocation:cron')->hourly();
-        $schedule->command('secondDeviceLocation:cron')->hourly();    
+        $schedule->command('firstDeviceLocation:cron')->daily();
+        $schedule->command('secondDeviceLocation:cron')->daily();    
     }
 
     /**
