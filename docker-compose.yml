@@ -1,0 +1,59 @@
+version: "3.7"
+
+services:
+  # Laravel Application
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www/
+    restart: unless-stopped
+    depends_on:
+      - redis
+    networks:
+      - pmte3r-laravel
+    container_name: app
+
+  # Nginx
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    ports:
+      - "8001:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+    networks:
+      - pmte3r-laravel
+    container_name: nginx
+
+  # Database (MySQL)
+  db:
+    image: mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.docker/mysql/dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    networks:
+      - pmte3r-laravel
+    container_name: db
+
+  # Redis
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - pmte3r-laravel
+    container_name: redis
+
+networks:
+  pmte3r-laravel:
+    driver: bridge
